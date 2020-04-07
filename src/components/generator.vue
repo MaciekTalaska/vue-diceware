@@ -20,16 +20,17 @@
                             class="column-right"
                             type="number" 
                             v-bind:value="passwordLength"
+                            v-on:change="updatePasswordLength"
                             onkeyup="this.value=this.value.replace(/[^\d]/,'');"
                             on:change="{validatePasswordLength}"
-                            min=4 max=10 vlaue={defaultLength}/>
+                            min=4 max=10 />
         </div>
         <div>
                 <label 	class="column-left" 
                                 for="separator_ctrl">separator:</label>
                 <input 	id="separator_ctrl" 
                                 class="column-right" 
-                                v-bind:value="separator" />
+                                v-model="separator" />
         </div>
         <div>
             <button v-on:click="generatePassword">
@@ -84,6 +85,9 @@ export default {
             if (! this.repository.has(language)) {
                 this.updateLanguageInternal(language);
             }
+        },
+        updatePasswordLength: function(event) {
+            this.passwordLength = Number(event.target.value);
         },
         generatePassword: function() {
             this.password = "";
