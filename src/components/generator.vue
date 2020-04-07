@@ -1,5 +1,5 @@
 <template>
-    <div class="container">this is passoword generator placeholder
+    <div class="container">
         <div>
             <label class="column-left" for="language_ctrl">language:</label>
             <select 	class="column-right"
@@ -31,7 +31,7 @@
                                 bind:value={separator} />
         </div>
         <div>
-            <button on:click={generatePassword}>
+            <button v-on:click="generatePassword">
                 Generate password
             </button>
         </div>
@@ -39,8 +39,66 @@
 </template>
 
 <script>
+import getWordsMap from "./../repo.js";
+import getRandom from "./../dice.js";
+
 export default {
-    name: "generator"
+
+    name: "generator",
+    data() {
+        return {
+            password: String,
+            repository: new Map(),
+            passwordLength: String,
+            language: String,
+            separator: String,
+        }
+    },
+    created() {
+        console.log("created")
+
+        this.language = "en";
+        this.separator = ".";
+        this.passwordLength = 4;
+    },
+    mounted() {
+        console.log("mounted");
+        // if ( this.repository.has(this.language)) {
+        //     return;
+        // } else {
+        //     let words = getWordsMap(this.language);
+        //     this.repository.set(this.language, words);
+        // }
+        this.updateLanguage(this.language);
+    },
+    methods: {
+        updateLanguage: function(language) {
+            getWordsMap(language).then(result => {
+                this.repository.set(this.language, result);
+            // let repository = this.state.repository;
+            // repository.set(language, result);
+            // this.setState({repository: repository});
+            })
+        },
+        updateLanguageInternal: function(language) {
+            console.log('language: ', language);
+        },
+        generatePassword: function() {
+            console.log("language: ", this.language);
+            console.log('repository: ', this.repository);
+
+            this.password = "";
+            let words = this.repository.get(this.language);
+            let allwords = new Array(this.passwordLength);
+            console.log('allwords: ', allwords);
+            console.log('words acquired. size: ', words.length);
+            allwords = allwords.fill().map(() => words[getRandom() % words.length]);
+            this.password = allwords.join(this.separator);
+
+            console.log("password: ", this.password);
+        },
+}
+
 };
 </script>
 
