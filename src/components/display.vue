@@ -1,5 +1,5 @@
 <template>
-    <div>this is placeholder for generated password
+    <div>this.is.generated.password
     </div>
 </template>
 
