@@ -6,7 +6,7 @@
             <select 	class="column-right"
                                 id="language_ctrl" 
                                 v-bind:value="language"
-                                on:change="{async (e) => loadDicewareWordList() }">
+                                v-on:change="updateLanguage">
                 <option value="en">English</option>
                 <option value="pl">Polish</option>
                 <option value="fi">Finnish</option>
@@ -77,9 +77,12 @@ export default {
                 this.repository.set(this.language, result);
             })
         },
-        updateLanguage: function(language) {
+        updateLanguage: function(event) {
+            let language = event.target.value;
+
+            this.language = language;
             if (! this.repository.has(language)) {
-                this.repository.set(language, this.repository);
+                this.updateLanguageInternal(language);
             }
         },
         generatePassword: function() {
