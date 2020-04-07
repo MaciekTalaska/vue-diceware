@@ -1,5 +1,7 @@
 {
-  "name": "vue",
+  "name": "vue-diceware",
+  "homepage": "https://github.com/MaciekTalaska/vue-diceware",
+  "description": "diceware password generator in vue",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -51,6 +53,5 @@
     "vue",
     "vuejs",
     "starter"
-  ],
-  "description": "Vue.js example starter project"
+  ]
 }
