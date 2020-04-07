@@ -1,10 +1,11 @@
 <template>
+<div>
     <div class="container">
         <div>
             <label class="column-left" for="language_ctrl">language:</label>
             <select 	class="column-right"
                                 id="language_ctrl" 
-                                bind:value={language} 
+                                v-bind:value="language"
                                 on:change="{async (e) => loadDicewareWordList() }">
                 <option value="en">English</option>
                 <option value="pl">Polish</option>
@@ -18,7 +19,7 @@
             <input 	id="password_ctrl" 	
                             class="column-right"
                             type="number" 
-                            bind:value={passwordLength} 
+                            v-bind:value="passwordLength"
                             onkeyup="this.value=this.value.replace(/[^\d]/,'');"
                             on:change="{validatePasswordLength}"
                             min=4 max=10 vlaue={defaultLength}/>
@@ -28,7 +29,7 @@
                                 for="separator_ctrl">separator:</label>
                 <input 	id="separator_ctrl" 
                                 class="column-right" 
-                                bind:value={separator} />
+                                v-bind:value="separator" />
         </div>
         <div>
             <button v-on:click="generatePassword">
@@ -36,6 +37,9 @@
             </button>
         </div>
     </div>
+    <!-- this is just temporary -->
+    <p>{{password}}</p>
+</div>
 </template>
 
 <script>
@@ -60,38 +64,28 @@ export default {
         this.language = "en";
         this.separator = ".";
         this.passwordLength = 4;
+        this.password = "";
     },
     mounted() {
         console.log("mounted");
-        // if ( this.repository.has(this.language)) {
-        //     return;
-        // } else {
-        //     let words = getWordsMap(this.language);
-        //     this.repository.set(this.language, words);
-        // }
-        this.updateLanguage(this.language);
+        this.updateLanguageInternal(this.language);
     },
     methods: {
-        updateLanguage: function(language) {
-            getWordsMap(language).then(result => {
-                this.repository.set(this.language, result);
-            // let repository = this.state.repository;
-            // repository.set(language, result);
-            // this.setState({repository: repository});
-            })
-        },
         updateLanguageInternal: function(language) {
             console.log('language: ', language);
+            getWordsMap(language).then(result => {
+                this.repository.set(this.language, result);
+            })
+        },
+        updateLanguage: function(language) {
+            if (! this.repository.has(language)) {
+                this.repository.set(language, this.repository);
+            }
         },
         generatePassword: function() {
-            console.log("language: ", this.language);
-            console.log('repository: ', this.repository);
-
             this.password = "";
             let words = this.repository.get(this.language);
             let allwords = new Array(this.passwordLength);
-            console.log('allwords: ', allwords);
-            console.log('words acquired. size: ', words.length);
             allwords = allwords.fill().map(() => words[getRandom() % words.length]);
             this.password = allwords.join(this.separator);
 
