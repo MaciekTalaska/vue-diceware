@@ -38,8 +38,6 @@
             </button>
         </div>
     </div>
-    <!-- this is just temporary
-    <p>{{password}}</p> -->
 </div>
 </template>
 
@@ -60,20 +58,16 @@ export default {
         }
     },
     created() {
-        console.log("created")
-
         this.language = "en";
         this.separator = ".";
         this.passwordLength = 4;
         this.password = "";
     },
     mounted() {
-        console.log("mounted");
         this.updateLanguageInternal(this.language);
     },
     methods: {
         updateLanguageInternal: function(language) {
-            console.log('language: ', language);
             getWordsMap(language).then(result => {
                 this.repository.set(this.language, result);
             })
@@ -96,11 +90,9 @@ export default {
             allwords = allwords.fill().map(() => words[getRandom() % words.length]);
             this.password = allwords.join(this.separator);
 
-            console.log("password: ", this.password);
             this.sendPasswordToParent();
         },
         sendPasswordToParent: function() {
-            console.log("[generator, sendMessageToPassword], password: ", this.password);
             this.$emit('passwordChanged', this.password);
         }
 }

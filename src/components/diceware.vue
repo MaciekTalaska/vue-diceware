@@ -26,7 +26,6 @@ export default {
     },
     methods: {
         updatePassword: function(newPassword) {
-            console.log("[diceware, updatePassword]: newPassword: ", newPassword);
             this.password = newPassword 
         }
     }
