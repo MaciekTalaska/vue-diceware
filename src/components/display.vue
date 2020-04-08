@@ -1,11 +1,14 @@
 <template>
-    <div>this.is.generated.password
+    <div> {{password}}
     </div>
 </template>
 
 <script>
 export default {
-    name: "display"  
+    name: "display",
+    props: {
+        password: String
+    }
 };
 </script>
 

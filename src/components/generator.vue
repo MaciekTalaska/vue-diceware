@@ -38,8 +38,8 @@
             </button>
         </div>
     </div>
-    <!-- this is just temporary -->
-    <p>{{password}}</p>
+    <!-- this is just temporary
+    <p>{{password}}</p> -->
 </div>
 </template>
 
@@ -97,7 +97,12 @@ export default {
             this.password = allwords.join(this.separator);
 
             console.log("password: ", this.password);
+            this.sendPasswordToParent();
         },
+        sendPasswordToParent: function() {
+            console.log("[generator, sendMessageToPassword], password: ", this.password);
+            this.$emit('passwordChanged', this.password);
+        }
 }
 
 };
