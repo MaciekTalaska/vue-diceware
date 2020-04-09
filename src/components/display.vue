@@ -1,16 +1,14 @@
 <template>
-    <div> {{password}}
-    </div>
+  <div>{{ password }}</div>
 </template>
 
 <script>
 export default {
-    name: "display",
-    props: {
-        password: String
-    }
+  name: "display",
+  props: {
+    password: String,
+  },
 };
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

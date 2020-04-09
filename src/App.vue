@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <diceware msg="Diceware Password generator in Vue"></diceware>
-    <projectInfo/>
+    <projectInfo />
   </div>
 </template>
 
@@ -14,7 +14,7 @@ export default {
   components: {
     diceware,
     projectInfo,
-  }
+  },
 };
 </script>
 
