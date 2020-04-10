@@ -8,10 +8,11 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
+    "prettify": "prettier --write .",
     "clean": "rm dist -rfd",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
-    "prettify": "prettier --write ."
+    "clean": "rm dist -rfd"
   },
   "dependencies": {
     "@vue/cli-plugin-babel": "4.1.1",
