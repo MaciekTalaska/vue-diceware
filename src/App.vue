@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import generator from "./components/generator";
+import generator from "./components/dpg/dpg-main";
 import projectInfo from "./components/projectinfo";
 
 export default {
