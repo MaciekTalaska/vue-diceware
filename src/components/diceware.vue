@@ -2,19 +2,16 @@
   <div>
     <h1>Diceware password generator in Vue</h1>
     <generator v-on:passwordChanged="updatePassword" />
-    <!-- <display v-bind:password="password" /> -->
   </div>
 </template>
 
 <script>
 import generator from "./generator";
-// import display from "./display";
 
 export default {
   name: "diceware",
   components: {
     generator,
-    // display,
   },
   data() {
     return {
@@ -31,5 +28,3 @@ export default {
   },
 };
 </script>
-
-<style scoped></style>
