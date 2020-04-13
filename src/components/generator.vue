@@ -40,7 +40,7 @@
           Generate password
         </button>
       </div>
-      <display v-bind:password="password" />
+      <password v-bind:password="password" />
     </div>
   </div>
 </template>
@@ -48,12 +48,12 @@
 <script>
 import getWordsMap from "./../repo.js";
 import getRandom from "./../dice.js";
-import display from "./display";
+import password from "./password";
 
 export default {
   name: "generator",
   components: {
-    display,
+    password,
   },
   data() {
     return {
