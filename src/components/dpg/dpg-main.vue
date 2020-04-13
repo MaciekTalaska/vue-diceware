@@ -24,12 +24,11 @@
           id="password_ctrl"
           class="column-right"
           type="number"
-          v-bind:value="passwordLength"
+          v-model="passwordLength"
           v-on:change="updatePasswordLength"
           onkeyup="this.value=this.value.replace(/[^\d]/,'');"
-          on:change="{validatePasswordLength}"
-          min="4"
-          max="10"
+          v-bind:min="MIN_PASS_LENGTH"
+          v-bind:max="MAX_PASS_LENGTH"
         />
       </div>
       <div>
@@ -51,6 +50,10 @@ import getWordsMap from "./repo.js";
 import getRandom from "./dice.js";
 import password from "./password";
 
+const MAX_PASS_LENGTH = 10;
+const MIN_PASS_LENGTH = 4;
+const DEFAULT_PASS_LENGTH = 6;
+
 export default {
   name: "generator",
   components: {
@@ -63,12 +66,14 @@ export default {
       passwordLength: String,
       language: String,
       separator: String,
+      MAX_PASS_LENGTH: MAX_PASS_LENGTH,
+      MIN_PASS_LENGTH: MIN_PASS_LENGTH,
     };
   },
   created() {
     this.language = "en";
     this.separator = ".";
-    this.passwordLength = 4;
+    this.passwordLength = DEFAULT_PASS_LENGTH;
     this.password = "";
   },
   mounted() {
@@ -89,7 +94,12 @@ export default {
       }
     },
     updatePasswordLength: function (event) {
-      this.passwordLength = Number(event.target.value);
+      let len = Number(event.target.value);
+      len = len > MAX_PASS_LENGTH ? MAX_PASS_LENGTH : len;
+      len = len < MIN_PASS_LENGTH ? MIN_PASS_LENGTH : len;
+      if (len != this.passwordLength) {
+        this.passwordLength = len;
+      }
     },
     generatePassword: function () {
       this.password = "";
