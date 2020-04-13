@@ -1,18 +1,18 @@
 <template>
   <div id="app">
-    <diceware msg="Diceware Password generator in Vue"></diceware>
+    <generator />
     <projectInfo />
   </div>
 </template>
 
 <script>
-import diceware from "./components/diceware";
+import generator from "./components/generator";
 import projectInfo from "./components/projectinfo";
 
 export default {
   name: "App",
   components: {
-    diceware,
+    generator,
     projectInfo,
   },
 };

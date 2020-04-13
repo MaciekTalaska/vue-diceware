@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h1>Diceware Password Generator in Vue</h1>
     <div class="container">
       <div>
         <label class="column-left" for="language_ctrl">language:</label>
