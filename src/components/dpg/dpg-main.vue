@@ -47,8 +47,8 @@
 </template>
 
 <script>
-import getWordsMap from "../../repo.js";
-import getRandom from "../../dice.js";
+import getWordsMap from "./repo.js";
+import getRandom from "./dice.js";
 import password from "./password";
 
 export default {
