@@ -10,9 +10,9 @@
           v-on:change="updateLanguage"
         >
           <option value="en">English</option>
-          <option value="pl">Polish</option>
           <option value="fi">Finnish</option>
           <option value="mi">Maori</option>
+          <option value="pl">Polish</option>
         </select>
       </div>
       <div>
