@@ -40,6 +40,7 @@
           Generate password
         </button>
       </div>
+      <display v-bind:password="password" />
     </div>
   </div>
 </template>
@@ -47,9 +48,13 @@
 <script>
 import getWordsMap from "./../repo.js";
 import getRandom from "./../dice.js";
+import display from "./display";
 
 export default {
   name: "generator",
+  components: {
+    display,
+  },
   data() {
     return {
       password: String,
@@ -101,14 +106,17 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 button {
   background: #ff3e00;
   color: white;
   border: none;
   padding: 8px 12px;
   border-radius: 2px;
-  max-width: 60%;
+  /* max-width: 60%; */
+  margin: 10px;
+  text-transform: capitalize;
+  padding: 10px 20px;
 }
 div {
   padding-bottom: 10px;
@@ -120,7 +128,7 @@ div {
   /*margin: 0 auto;*/
   display: inline-grid;
   background-color: lightblue;
-  padding: 60px;
+  padding: 60px 60px 20px 60px;
   border-radius: 5px;
 }
 
@@ -133,5 +141,15 @@ div {
   width: 300px;
   float: right;
   box-sizing: border-box;
+}
+
+.password-area {
+  background-color: aliceblue;
+  font-size: 15px;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
 }
 </style>

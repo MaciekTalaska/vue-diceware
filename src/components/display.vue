@@ -1,5 +1,14 @@
 <template>
-  <div>{{ password }}</div>
+  <div>
+    <textarea
+      id="passwordArea"
+      class="password-area"
+      readonly
+      rows="1"
+      v-model="password"
+    />
+    <button on:click="{copyPasswordToClipboard}">copy to clipboard</button>
+  </div>
 </template>
 
 <script>
