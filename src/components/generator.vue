@@ -96,11 +96,6 @@ export default {
       let allwords = new Array(this.passwordLength);
       allwords = allwords.fill().map(() => words[getRandom() % words.length]);
       this.password = allwords.join(this.separator);
-
-      this.sendPasswordToParent();
-    },
-    sendPasswordToParent: function () {
-      this.$emit("passwordChanged", this.password);
     },
   },
 };

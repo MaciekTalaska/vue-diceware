@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Diceware password generator in Vue</h1>
-    <generator v-on:passwordChanged="updatePassword" />
+    <generator />
   </div>
 </template>
 
@@ -20,11 +20,6 @@ export default {
   },
   created() {
     this.password = "";
-  },
-  methods: {
-    updatePassword: function (newPassword) {
-      this.password = newPassword;
-    },
   },
 };
 </script>
