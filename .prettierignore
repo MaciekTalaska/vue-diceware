@@ -1,3 +1,5 @@
 README.md
 vue.config.js
 dist/*
+package.json
+package-lock.json
