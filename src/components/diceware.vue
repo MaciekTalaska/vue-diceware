@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Diceware password generator in Vue</h1>
+    <h1>{{ msg }}</h1>
     <generator />
   </div>
 </template>
@@ -13,13 +13,6 @@ export default {
   components: {
     generator,
   },
-  data() {
-    return {
-      password: String,
-    };
-  },
-  created() {
-    this.password = "";
-  },
+  props: ["msg"],
 };
 </script>
