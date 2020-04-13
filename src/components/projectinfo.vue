@@ -1,6 +1,6 @@
 <template>
   <small>
-    <p style="margin-top: 60px;">
+    <p>
       this project on github:
       <a href="https://github.com/MaciekTalaska/vue-diceware">vue-diceware</a>
     </p>
@@ -12,5 +12,3 @@ export default {
   name: "projectInfo",
 };
 </script>
-
-<style scoped></style>
