@@ -7,7 +7,7 @@
       rows="1"
       v-model="password"
     />
-    <button on:click="{copyPasswordToClipboard}">copy to clipboard</button>
+    <button v-on:click="copyPasswordToClipboard">copy to clipboard</button>
   </div>
 </template>
 
@@ -16,6 +16,14 @@ export default {
   name: "display",
   props: {
     password: String,
+  },
+  methods: {
+    copyPasswordToClipboard: function () {
+      let el = document.getElementById("passwordArea");
+      el.select();
+      document.execCommand("copy");
+      el.selectionStart = el.selectionEnd;
+    },
   },
 };
 </script>
