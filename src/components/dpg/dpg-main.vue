@@ -18,7 +18,8 @@
       </div>
       <div>
         <label class="column-left" for="password_ctrl"
-          >words per password (4-10):</label
+          >words per password ({{ MIN_PASS_LENGTH }} -
+          {{ MAX_PASS_LENGTH }}):</label
         >
         <input
           id="password_ctrl"
@@ -53,6 +54,8 @@ import password from "./password";
 const MAX_PASS_LENGTH = 10;
 const MIN_PASS_LENGTH = 4;
 const DEFAULT_PASS_LENGTH = 6;
+const DEFAULT_SEPARATOR = ".";
+const DEFAULT_LANGUAGE = "en";
 
 export default {
   name: "generator",
@@ -71,8 +74,8 @@ export default {
     };
   },
   created() {
-    this.language = "en";
-    this.separator = ".";
+    this.language = DEFAULT_LANGUAGE;
+    this.separator = DEFAULT_SEPARATOR;
     this.passwordLength = DEFAULT_PASS_LENGTH;
     this.password = "";
   },
