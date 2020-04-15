@@ -66,7 +66,7 @@ export default {
     return {
       password: String,
       repository: new Map(),
-      passwordLength: String,
+      passwordLength: Number,
       language: String,
       separator: String,
       MAX_PASS_LENGTH: MAX_PASS_LENGTH,
@@ -100,7 +100,7 @@ export default {
       let len = Number(event.target.value);
       len = len > MAX_PASS_LENGTH ? MAX_PASS_LENGTH : len;
       len = len < MIN_PASS_LENGTH ? MIN_PASS_LENGTH : len;
-      if (len != this.passwordLength) {
+      if (len !== this.passwordLength) {
         this.passwordLength = len;
       }
     },
