@@ -27,3 +27,15 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+  .password-area {
+    background-color: aliceblue;
+    font-size: 15px;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+  }
+</style>

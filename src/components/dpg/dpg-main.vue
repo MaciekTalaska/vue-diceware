@@ -120,9 +120,7 @@ button {
   background: #ff3e00;
   color: white;
   border: none;
-  padding: 8px 12px;
   border-radius: 2px;
-  /* max-width: 60%; */
   margin: 10px;
   text-transform: capitalize;
   padding: 10px 20px;
@@ -150,15 +148,5 @@ div {
   width: 300px;
   float: right;
   box-sizing: border-box;
-}
-
-.password-area {
-  background-color: aliceblue;
-  font-size: 15px;
-  border: none;
-  border-radius: 5px;
-  width: 100%;
-  text-align: center;
-  padding: 10px;
 }
 </style>
