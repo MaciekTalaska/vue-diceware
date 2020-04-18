@@ -115,8 +115,8 @@ export default {
 };
 </script>
 
-<style>
-button {
+<style scoped>
+>>> button {
   background: #ff3e00;
   color: white;
   border: none;
@@ -131,8 +131,6 @@ div {
 .container {
   width: 600px;
   border: 1px solid #ffffff;
-
-  /*margin: 0 auto;*/
   display: inline-grid;
   background-color: lightblue;
   padding: 60px 60px 20px 60px;
