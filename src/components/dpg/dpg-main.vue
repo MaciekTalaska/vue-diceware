@@ -117,7 +117,7 @@ export default {
 
 <style scoped>
 >>> button {
-  background: #ff3e00;
+  background: steelblue;
   color: white;
   border: none;
   border-radius: 2px;
