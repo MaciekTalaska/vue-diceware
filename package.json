@@ -11,8 +11,7 @@
     "prettify": "prettier --write .",
     "clean": "rm dist -rfd",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
-    "clean": "rm dist -rfd"
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@vue/cli-plugin-babel": "4.1.1",
