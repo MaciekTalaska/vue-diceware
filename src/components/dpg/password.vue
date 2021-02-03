@@ -4,7 +4,7 @@
       id="passwordArea"
       class="password-area"
       readonly
-      rows="1"
+      rows="2"
       v-bind:value="password"
     />
     <button v-on:click="copyPasswordToClipboard">copy to clipboard</button>
